@@ -11,7 +11,7 @@ class EntradaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,23 @@ class EntradaRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        switch ($this->method()) {
+            case 'POST':
+                return [
+                    'placa' => 'required|unique:vehiculos|max:15',
+                    'fecha' => 'required|date',
+                ];
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'placa' => 'required|unique:vehiculos,placa,'.$this->get('id').'|max:15',
+                    'fecha' => 'required|date',
+                ];
+            }
+            default:
+                # code...
+                break;
+        }
     }
 }
