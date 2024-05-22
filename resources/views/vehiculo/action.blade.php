@@ -1,5 +1,5 @@
 <div class="modal-content">
-    <form id="formUpdate" action="{{$categoria->id ? route('categoria.update',$categoria) : route('categoria.store')}}"
+    <form id="formUpdate" action="{{$vehiculo->id ? route('vehiculo.update',$vehiculo) : route('vehiculo.store')}}"
      method="post">
     <div class="modal-header">
         <h4 class="modal-title" id="modal-title">Vehiculo</h4>

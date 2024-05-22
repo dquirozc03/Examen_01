@@ -9,12 +9,12 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-header">
-                  <h5 class="m-0">Categorías <button class="btn btn-primary" onclick="nuevo()"><i class="fas fa-file"></i> Nuevo</button> <a href=""
+                  <h5 class="m-0">Vehículos <button class="btn btn-primary" onclick="nuevo()"><i class="fas fa-file"></i> Nuevo</button> <a href=""
                       class="btn btn-success"><i class="fas fa-file-csv"></i> CSV</a></h5>
                 </div>
                 <div class="card-body">
                   <div>
-                    <form action="{{route('categoria.index')}}" method="get">
+                    <form action="{{route('vehiculo.index')}}" method="get">
                       <div class="input-group">
                           <input name="texto" type="text" class="form-control" value="{{$texto}}">
                           <div class="input-group-append">
@@ -46,7 +46,7 @@
                               </button>
                             </td>
                             <td>{{$reg->id}}</td>
-                            <td>{{$reg->nombre}}</td>
+                            <td>{{$reg->placa}}</td>
                           </tr>
                           @endforeach
                         </tbody>
@@ -78,19 +78,19 @@
     function nuevo(){
       $.ajax({
             method: 'get',
-            url: `{{url('categoria/create')}}`,
+            url: `{{url('vehiculo/create')}}`,
             success: function(res){
               $('#modal-update').find('.modal-dialog').html(res);
               $("#textoBoton").text("Guardar");
               $('#modal-update').modal("show");
               guardar();
-            }
+            } 
           });
     }
     function editar(id){
       $.ajax({
             method: 'get',
-            url: `{{url('categoria')}}/${id}/edit`,
+            url: `{{url('vehiculo')}}/${id}/edit`,
             success: function(res){
               $('#modal-update').find('.modal-dialog').html(res);
               $("#textoBoton").text("Actualizar");
@@ -152,7 +152,7 @@
               if (result.isConfirmed) {
                 $.ajax({
                     method: 'DELETE',
-                    url: `{{url('categoria')}}/${id}`,
+                    url: `{{url('vehiculo')}}/${id}`,
                     headers:{
                       'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
                     },

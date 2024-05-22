@@ -134,25 +134,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a id="liUnidadMedida" href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Unidades</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a id="liCategoria" href="{{route('categoria.index')}}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Categorías</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a id="liProducto" href="#" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Productos</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a id="liVehiculo" href="#" class="nav-link">
+                  <a id="liVehiculo" href="{{route('vehiculo.index')}}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Vehiculos</p>
                   </a>
